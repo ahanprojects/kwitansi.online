@@ -205,7 +205,7 @@ export default function Home() {
         Kwitansi.online
       </h1>
       <span className="absolute bottom-3 right-3 text-slate-500">
-      ☝️🤓 It's actually spelled "kuitansi" 
+      ☝️🤓 It&apos;s actually spelled &quot;kuitansi&quot; 
       </span>
       <Link 
         href={'https://github.com/ahanprojects/kwitansi.online'} 
