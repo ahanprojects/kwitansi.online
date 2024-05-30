@@ -14,14 +14,10 @@ import NextImage from "next/image";
 import { DownloadIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { ChangeEvent, useRef, useState } from "react";
-import {
-  Colors,
-  Font,
-  Fonts,
-  Color,
-  Kuitansi,
-} from "@/lib/constants";
+import { Colors, Font, Fonts, Color, Kuitansi } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Github } from "lucide-react";
 
 export default function Home() {
   const [color, setColor] = useState<Color>(Colors[0]);
@@ -127,7 +123,7 @@ export default function Home() {
       {/* Form */}
       <div className={`relative w-[900px] mx-auto mt-8 ${font.className}`}>
         <NextImage
-          src={'/images/blue.jpg'}
+          src={"/images/blue.jpg"}
           alt="Deskripsi gambar"
           className="absolute rounded-xl shadow-xl"
           width={900}
@@ -205,9 +201,17 @@ export default function Home() {
       </div>
 
       {/* Logo */}
-      <h1 className="absolute bottom-2 left-2 text-4xl font-semibold text-slate-600 font-mono">
+      <h1 className="absolute bottom-2 left-2 text-4xl font-semibold text-slate-700 font-mono">
         Kwitansi.online
       </h1>
+      <span className="absolute bottom-3 right-3 text-slate-500">
+      ☝️🤓 It's actually spelled "kuitansi" 
+      </span>
+      <Link 
+        href={'https://github.com/ahanprojects/kwitansi.online'} 
+        className="absolute top-4 right-4">
+        <Github />
+      </Link>
     </main>
   );
 }
@@ -238,9 +242,9 @@ async function download(props: DownloadProps) {
 
   const kuitansiImage = new Image();
 
-  const fontFace = new FontFace(font.fontFamily, `url(${font.url})`)
-  await fontFace.load()
-  document.fonts.add(fontFace)
+  const fontFace = new FontFace(font.fontFamily, `url(${font.url})`);
+  await fontFace.load();
+  document.fonts.add(fontFace);
 
   kuitansiImage.onload = () => {
     canvas.width = kuitansiImage.width;
@@ -265,22 +269,20 @@ async function download(props: DownloadProps) {
         const h = 180;
         const w = h * (ttdImage.width / ttdImage.height);
         ctx.drawImage(ttdImage, 1050, 370, w, h);
-  
+
         const link = document.createElement("a");
         link.download = `${filename}.png`;
         link.href = canvas.toDataURL();
         link.click();
       };
-  
+
       ttdImage.src = ttdSrc;
-    }
-    else {
+    } else {
       const link = document.createElement("a");
       link.download = `${filename}.png`;
       link.href = canvas.toDataURL();
       link.click();
     }
-    
   };
 
   kuitansiImage.src = color.imageSrc;
