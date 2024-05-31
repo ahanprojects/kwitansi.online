@@ -89,7 +89,6 @@ export default function Home() {
               </ToggleGroupItem>
             ))}
           </ToggleGroup>
-
           {/* Select Font */}
           <Select
             onValueChange={(v) => setFont(Fonts[parseInt(v)])}
@@ -119,7 +118,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       {/* Form */}
       <div className={`relative w-[900px] mx-auto mt-8 ${font.className}`}>
         <NextImage
@@ -199,16 +197,20 @@ export default function Home() {
           onChange={handleChange}
         />
       </div>
-
       {/* Logo */}
-      <h1 className="absolute bottom-2 left-2 text-4xl font-semibold text-slate-700 font-mono">
-        Kwitansi.online
-      </h1>
+      <div className="absolute bottom-2 left-2">
+        <h1 className="text-4xl font-semibold text-slate-700 font-mono">
+          Kwitansi.online
+        </h1>
+        <h2 className="text-slate-700">
+          Buat kuitansi digital online ga pake ribet.
+        </h2>
+      </div>
       <span className="absolute bottom-3 right-3 text-slate-500">
-      ☝️🤓 It&apos;s actually spelled &quot;kuitansi&quot; 
+        ☝️🤓 It&apos;s actually spelled &quot;kuitansi&quot;
       </span>
-      <Link 
-        href={'https://github.com/ahanprojects/kwitansi.online'} 
+      <Link
+        href={"https://github.com/ahanprojects/kwitansi.online"}
         className="absolute top-4 right-4">
         <Github />
       </Link>
@@ -255,7 +257,7 @@ async function download(props: DownloadProps) {
     ctx.fillStyle = "black";
     ctx.fillText(form.no, 400, 85);
     ctx.fillText(form.pengirim, 640, 140);
-    ctx.fillText(form.jumlah, 640, 210);
+    ctx.fillText(form.jumlah.toUpperCase(), 640, 210);
     ctx.fillText(row1, 640, 260);
     ctx.fillText(row2, 350, 305);
     ctx.fillText(row3, 350, 350);

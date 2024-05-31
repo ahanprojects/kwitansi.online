@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.kwitansi.online
+
+# Sitemaps
+Sitemap: https://www.kwitansi.online/sitemap.xml

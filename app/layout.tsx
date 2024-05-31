@@ -5,8 +5,18 @@ import "./globals.css";
 const fontSans = FontSans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kwintansi Online",
-  description: "Buat kuitansi dalam hitungan detik!",
+  title: "Kwitansi Online - Buat Kwitansi Digital dengan Mudah",
+  description: "Buat kwitansi digital dengan mudah dan cepat di Kwitansi Online. Cocok untuk kebutuhan anda di Indonesia",
+  keywords: "kwitansi online, kwitansi digital, buat kwitansi, kwitansi bisnis, Indonesia",
+  robots: "index, follow",
+  openGraph: {
+    title:"Kwitansi Online - Buat Kwitansi Digital dengan Mudah",
+    description: "Buat kwitansi digital dengan mudah dan cepat di Kwitansi Online. Cocok untuk kebutuhan anda di Indonesia",
+    url: "https://www.kwitansi.online/",
+    type: "website",
+
+  }
+
 };
 
 export default function RootLayout({
